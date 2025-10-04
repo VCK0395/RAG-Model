@@ -71,7 +71,7 @@ sample_embedding = collection.get(limit=1, include=["embeddings"])["embeddings"]
 dimensions = len(sample_embedding)
 print(f"The vectors have {dimensions:,} dimensions")
 
-# create a new Chat with OpenAI
+# create a new Chat with Gemini
 llm = ChatGoogleGenerativeAI(
     temperature=0.7, 
     model=MODEL
@@ -83,7 +83,7 @@ memory = ConversationBufferMemory(memory_key='chat_history', return_messages=Tru
 # the retriever is an abstraction over the VectorStore that will be used during RAG
 retriever = vectorstore.as_retriever()
 
-# putting it together: set up the conversation chain with the GPT 4o-mini LLM, the vector store and memory
+# putting it together: set up the conversation chain with the Gemini LLM, the vector store and memory
 conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
 
 query = "Can you describe Insurellm in a few sentences"
