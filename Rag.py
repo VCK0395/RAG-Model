@@ -2,7 +2,7 @@
 import os
 import glob
 from dotenv import load_dotenv
-import gradio as gr
+from google import genai
 # imports for langchain
 
 from langchain.document_loaders import DirectoryLoader, TextLoader
