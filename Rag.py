@@ -11,8 +11,6 @@ from langchain.schema import Document
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_chroma import Chroma
 import numpy as np
-from sklearn.manifold import TSNE
-import plotly.graph_objects as go
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 # price is a factor for our company, so we're going to use a low cost model
@@ -28,9 +26,9 @@ os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY', 'your-key-if-not-usin
 
 folders = glob.glob("knowledge-base/*")
 
-# With thanks to CG and Jon R, students on the course, for this fix needed for some users 
+
 text_loader_kwargs = {'encoding': 'utf-8'}
-# If that doesn't work, some Windows users might need to uncomment the next line instead
+# If that doesn't work, use this
 # text_loader_kwargs={'autodetect_encoding': True}
 
 documents = []
